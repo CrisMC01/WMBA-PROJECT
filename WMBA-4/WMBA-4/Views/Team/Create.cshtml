@@ -1,0 +1,128 @@
+﻿@model WMBA_4.Models.Team
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+@* page navigation *@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb breadcrumb-chevron p-3 bg-breadcrumble rounded-3">
+        <li class="breadcrumb-item">
+            <a class="link-body-emphasis" asp-controller="Home" asp-action="Index">
+                <i class="bi bi-house-door-fill"></i>
+            </a>
+        </li>
+        <li class="breadcrumb-item">
+            <a class="link-body-emphasis fw-semibold text-decoration-none" asp-controller="Team" asp-action="Index">Team</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">
+            Create
+        </li>
+    </ol>
+</nav>
+@* page navigation *@
+
+<h1>Add New Team</h1>
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<hr />
+<form asp-action="Create">
+
+    <div class="row">
+        <div class="col-md-4">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="form-group">
+                    <label class="control-label">Scorekeepers</label>
+                    <select name="ScorekeeperIds" asp-items="ViewBag.ScorekeeperIds" class="form-control form-select" multiple></select>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Coaches</label>
+                    <select name="CoachIds" asp-items="ViewBag.CoachIds" class="form-control form-select" multiple></select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="DivisionID" class="control-label"></label>
+                <select asp-for="DivisionID" class="form-control form-select" asp-items="ViewBag.DivisionID"></select>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <a href='@ViewData["returnURL"]' class="btn btn-outline-secondary mx-1">Back to the @ViewData["ControllerName"] List</a>
+        <input type="submit" value="Create and Save" class="btn btn-kelly mx-1" />
+    </div>
+</form>
+
+<!-- Add Coach Modal -->
+<div class="modal fade" id="addCoachModal" tabindex="-1" role="dialog" aria-labelledby="addCoachModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addCoachModalLabel">Add New Coach</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="addCoachForm">
+                    <div class="form-group">
+                        <label for="coachFirstName">First Name</label>
+                        <input type="text" class="form-control" id="coachFirstName" name="coachFirstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="coachLastName">Last Name</label>
+                        <input type="text" class="form-control" id="coachLastName" name="coachLastName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="coachEmail">Email</label>
+                        <input type="email" class="form-control" id="coachEmail" name="coachEmail" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-kelly" id="saveCoachBtn" data-dismiss="modal" aria-label="Close">Save and Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        $(document).ready(function () {
+            $('#saveCoachBtn').click(function () {
+                var firstName = $('#coachFirstName').val();
+                var lastName = $('#coachLastName').val();
+                var email = $('#coachEmail').val();
+
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("AddCoach", "Team")',
+                    data: { firstName: firstName, lastName: lastName, email: email },
+                    success: function (data) {
+                        // Append the new coach to the select options
+                        $('#TeamStaff').append('<option value="' + data.id + '">' + data.name + '</option>');
+
+                        // Close the modal
+                        document.getElementById('addCoachModal').classList.remove('show');
+                    },
+                    error: function () {
+                        alert('Error occurred while adding coach.');
+                    }
+                });
+            });
+            $('#addCoachModal').on('hidden.bs.modal', function () {
+                
+                $('#addCoachForm')[0].reset();
+            });
+        });
+    </script>
+}

@@ -1,0 +1,497 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\WMBA-icon-36x36.png",
+      "PackagePath": "staticwebassets\\WMBA-icon-36x36.png"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\WMBA36x36.png",
+      "PackagePath": "staticwebassets\\WMBA36x36.png"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\css\\ScorekeeperStyle.css",
+      "PackagePath": "staticwebassets\\css\\ScorekeeperStyle.css"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\css\\layoutStyle.css",
+      "PackagePath": "staticwebassets\\css\\layoutStyle.css"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\css\\media.css",
+      "PackagePath": "staticwebassets\\css\\media.css"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\css\\style.css",
+      "PackagePath": "staticwebassets\\css\\style.css"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\fonts\\Digital Display\\digital display tfb.jpg",
+      "PackagePath": "staticwebassets\\fonts\\Digital Display\\digital display tfb.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\fonts\\Digital Display\\digital display tfb.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Digital Display\\digital display tfb.ttf"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\fonts\\Digital Display\\readme.txt",
+      "PackagePath": "staticwebassets\\fonts\\Digital Display\\readme.txt"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\fonts\\cursed-timer-ulil-font\\CursedTimerUlil-Aznm.ttf",
+      "PackagePath": "staticwebassets\\fonts\\cursed-timer-ulil-font\\CursedTimerUlil-Aznm.ttf"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\fonts\\cursed-timer-ulil-font\\info.txt",
+      "PackagePath": "staticwebassets\\fonts\\cursed-timer-ulil-font\\info.txt"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\fonts\\cursed-timer-ulil-font\\misc\\Cursed Timer Description.txt",
+      "PackagePath": "staticwebassets\\fonts\\cursed-timer-ulil-font\\misc\\Cursed Timer Description.txt"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\fonts\\jd-led3-font\\JdLed3Regular-1Xg2.ttf",
+      "PackagePath": "staticwebassets\\fonts\\jd-led3-font\\JdLed3Regular-1Xg2.ttf"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\fonts\\jd-led3-font\\info.txt",
+      "PackagePath": "staticwebassets\\fonts\\jd-led3-font\\info.txt"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\fonts\\jd-led3-font\\misc\\readme.txt",
+      "PackagePath": "staticwebassets\\fonts\\jd-led3-font\\misc\\readme.txt"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\fonts\\scoreboard.ttf",
+      "PackagePath": "staticwebassets\\fonts\\scoreboard.ttf"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\fonts\\sf-digital-readout-font\\SfDigitalReadoutHeavy-AwVg.ttf",
+      "PackagePath": "staticwebassets\\fonts\\sf-digital-readout-font\\SfDigitalReadoutHeavy-AwVg.ttf"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\fonts\\sf-digital-readout-font\\SfDigitalReadoutHeavyOblique-GKRA.ttf",
+      "PackagePath": "staticwebassets\\fonts\\sf-digital-readout-font\\SfDigitalReadoutHeavyOblique-GKRA.ttf"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\fonts\\sf-digital-readout-font\\SfDigitalReadoutLight-JaYK.ttf",
+      "PackagePath": "staticwebassets\\fonts\\sf-digital-readout-font\\SfDigitalReadoutLight-JaYK.ttf"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\fonts\\sf-digital-readout-font\\SfDigitalReadoutLightOblique-VqXe.ttf",
+      "PackagePath": "staticwebassets\\fonts\\sf-digital-readout-font\\SfDigitalReadoutLightOblique-VqXe.ttf"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\fonts\\sf-digital-readout-font\\SfDigitalReadoutMedium-q3rq.ttf",
+      "PackagePath": "staticwebassets\\fonts\\sf-digital-readout-font\\SfDigitalReadoutMedium-q3rq.ttf"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\fonts\\sf-digital-readout-font\\SfDigitalReadoutMediumOblique-jVly.ttf",
+      "PackagePath": "staticwebassets\\fonts\\sf-digital-readout-font\\SfDigitalReadoutMediumOblique-jVly.ttf"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\fonts\\sf-digital-readout-font\\info.txt",
+      "PackagePath": "staticwebassets\\fonts\\sf-digital-readout-font\\info.txt"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\fonts\\sf-digital-readout-font\\misc\\ShyFoundry Freeware EULA.pdf",
+      "PackagePath": "staticwebassets\\fonts\\sf-digital-readout-font\\misc\\ShyFoundry Freeware EULA.pdf"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\images\\0c08qgyoiv57oe1jtxth.gif",
+      "PackagePath": "staticwebassets\\images\\0c08qgyoiv57oe1jtxth.gif"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\images\\AddPlayer.png",
+      "PackagePath": "staticwebassets\\images\\AddPlayer.png"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\images\\Addteam.png",
+      "PackagePath": "staticwebassets\\images\\Addteam.png"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\images\\DashBoard.png",
+      "PackagePath": "staticwebassets\\images\\DashBoard.png"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\images\\GameAssigment.png",
+      "PackagePath": "staticwebassets\\images\\GameAssigment.png"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\images\\GameAssigment1.png",
+      "PackagePath": "staticwebassets\\images\\GameAssigment1.png"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\images\\ImportTeam.png",
+      "PackagePath": "staticwebassets\\images\\ImportTeam.png"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\images\\Report1.png",
+      "PackagePath": "staticwebassets\\images\\Report1.png"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\images\\ReportTeam.png",
+      "PackagePath": "staticwebassets\\images\\ReportTeam.png"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\images\\Scorekeeper.png",
+      "PackagePath": "staticwebassets\\images\\Scorekeeper.png"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\images\\Scorekeeper2.png",
+      "PackagePath": "staticwebassets\\images\\Scorekeeper2.png"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\images\\Scorekeeper3.png",
+      "PackagePath": "staticwebassets\\images\\Scorekeeper3.png"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\images\\WMBA - combine.png",
+      "PackagePath": "staticwebassets\\images\\WMBA - combine.png"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\images\\WMBA - combine.svg",
+      "PackagePath": "staticwebassets\\images\\WMBA - combine.svg"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\images\\WMBA.png",
+      "PackagePath": "staticwebassets\\images\\WMBA.png"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\images\\WMBA.svg",
+      "PackagePath": "staticwebassets\\images\\WMBA.svg"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\images\\baseball-diamond.png",
+      "PackagePath": "staticwebassets\\images\\baseball-diamond.png"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\images\\login.png",
+      "PackagePath": "staticwebassets\\images\\login.png"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\images\\reg1.png",
+      "PackagePath": "staticwebassets\\images\\reg1.png"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\images\\vs.jpg",
+      "PackagePath": "staticwebassets\\images\\vs.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\images\\wmba1.jpg",
+      "PackagePath": "staticwebassets\\images\\wmba1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\js\\ActionsScorekeeping.js",
+      "PackagePath": "staticwebassets\\js\\ActionsScorekeeping.js"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\js\\checkbox.js",
+      "PackagePath": "staticwebassets\\js\\checkbox.js"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\js\\qr.js",
+      "PackagePath": "staticwebassets\\js\\qr.js"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\js\\sidenav.js",
+      "PackagePath": "staticwebassets\\js\\sidenav.js"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\davidshimjs-qrcodejs-04f46c6\\.gitignore",
+      "PackagePath": "staticwebassets\\lib\\davidshimjs-qrcodejs-04f46c6\\.gitignore"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\davidshimjs-qrcodejs-04f46c6\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\davidshimjs-qrcodejs-04f46c6"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\davidshimjs-qrcodejs-04f46c6\\README.md",
+      "PackagePath": "staticwebassets\\lib\\davidshimjs-qrcodejs-04f46c6\\README.md"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\davidshimjs-qrcodejs-04f46c6\\bower.json",
+      "PackagePath": "staticwebassets\\lib\\davidshimjs-qrcodejs-04f46c6\\bower.json"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\davidshimjs-qrcodejs-04f46c6\\index-svg.html",
+      "PackagePath": "staticwebassets\\lib\\davidshimjs-qrcodejs-04f46c6\\index-svg.html"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\davidshimjs-qrcodejs-04f46c6\\index.html",
+      "PackagePath": "staticwebassets\\lib\\davidshimjs-qrcodejs-04f46c6\\index.html"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\davidshimjs-qrcodejs-04f46c6\\index.svg",
+      "PackagePath": "staticwebassets\\lib\\davidshimjs-qrcodejs-04f46c6\\index.svg"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\davidshimjs-qrcodejs-04f46c6\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\davidshimjs-qrcodejs-04f46c6\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\davidshimjs-qrcodejs-04f46c6\\qrcode.min.js",
+      "PackagePath": "staticwebassets\\lib\\davidshimjs-qrcodejs-04f46c6\\qrcode.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "C:\\Users\\Cristina\\Documents\\GitHub\\April17\\Innova-Coders-WMBA-4\\WMBA-4\\WMBA-4\\wwwroot\\lib\\qrcode.js",
+      "PackagePath": "staticwebassets\\lib\\qrcode.js"
+    },
+    {
+      "Id": "obj\\Release\\net7.0\\win-x86\\staticwebassets\\msbuild.WMBA-4.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Release\\net7.0\\win-x86\\staticwebassets\\msbuild.build.WMBA-4.props",
+      "PackagePath": "build\\WMBA-4.props"
+    },
+    {
+      "Id": "obj\\Release\\net7.0\\win-x86\\staticwebassets\\msbuild.buildMultiTargeting.WMBA-4.props",
+      "PackagePath": "buildMultiTargeting\\WMBA-4.props"
+    },
+    {
+      "Id": "obj\\Release\\net7.0\\win-x86\\staticwebassets\\msbuild.buildTransitive.WMBA-4.props",
+      "PackagePath": "buildTransitive\\WMBA-4.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

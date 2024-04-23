@@ -1,0 +1,133 @@
+﻿@model WMBA_4.ViewModels.GameEditVM
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+@* page navigation *@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb breadcrumb-chevron p-3 bg-breadcrumble rounded-3">
+        <li class="breadcrumb-item">
+            <a class="link-body-emphasis" asp-controller="Home" asp-action="Index">
+                <i class="bi bi-house-door-fill"></i>
+            </a>
+        </li>
+        <li class="breadcrumb-item">
+            <a class="link-body-emphasis fw-semibold text-decoration-none" asp-controller="Game" asp-action="Index">Game Assignment</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">
+            Edit
+        </li>
+    </ol>
+</nav>
+
+<h2 class="text-black">@Model.Team1Name VS @Model.Team2Name</h2>
+@* Label Season: *@
+<h4>@Html.DisplayFor(model => Model.Game.Season.SeasonName)</h4>
+<hr />
+
+<form asp-action="Edit">
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DivisionID" class="control-label"></label>
+                <select asp-for="DivisionID" class="form-control form-select" asp-items="ViewBag.DivisionID" disabled></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Date" class="control-label"></label>
+                <input asp-for="Date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Team1ID" class="control-label"></label>
+                <select asp-for="Team1ID" class="form-control form-select" asp-items="ViewBag.Team1ID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Score1" class="control-label">Home Team Score</label>
+                <input asp-for="Score1" class="form-control" />
+                <span asp-validation-for="Score1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Team2ID" class="control-label "></label>
+                <select asp-for="Team2ID" class="form-control form-select" asp-items="ViewBag.Team2ID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Score2" class="control-label">Visitor Team Score</label>
+                <input asp-for="Score2" class="form-control" />
+                <span asp-validation-for="Score2" class="text-danger"></span>
+            </div>
+            <div>
+                <div class="mb-2">
+                    <button type="button" class="btn btn-kelly" data-toggle="modal" data-target="#addLocationModals">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <label  class="control-label">Add Location</label>
+                </div>
+                <select id="SelectedLocationIdss" name="LocationID" class="form-control form-select mb-3" asp-items="@ViewBag.LocationID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="GameTypeID" class="control-label"></label>
+                <select asp-for="GameTypeID" class="form-control form-select" asp-items="ViewBag.GameTypeID"></select>
+                <span asp-validation-for="GameTypeID" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <a href='@ViewData["returnURL"]' class="btn btn-outline-secondary mx-1">Back to the @ViewData["ControllerName"] List</a>
+        <input type="submit" value="Edit and Save" class="btn btn-kelly mx-1" />
+    </div>
+</form>
+
+@* Popup Modal *@
+<div class="modal fade" id="addLocationModals" tabindex="-1" role="dialog" aria-labelledby="addLocationModalsLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addLocationModalLabel">Add New Location</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="addLocationForm">
+                    <div class="form-group">
+                        <label for="LocationNames">Location Name</label>
+                        <input type="text" class="form-control" id="LocationNames" name="LocationName" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-kelly" id="saveLocationBtns" data-dismiss="modal">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+@* Popup Modal *@
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        $(document).ready(function () {
+            $('#saveLocationBtns').click(function () {
+                var locationName = $('#LocationNames').val();
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("AddLocation", "Game")',
+                    data: { locationName: locationName },
+                    success: function (data) {
+                        $('#SelectedLocationIdss').append('<option value="' + data.id + '">' + data.name + '</option>');
+                        $('#addLocationModals').modal('hide');
+                    },
+                    error: function () {
+                        alert('Error occurred while adding location.');
+                    }
+                });
+            });
+        });
+    </script>
+}

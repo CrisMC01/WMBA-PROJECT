@@ -1,0 +1,96 @@
+﻿@model WMBA_4.Models.Game
+
+<header>
+    <h1>@ViewBag.TeamName Line Up</h1>
+</header>
+<section>
+    <p>@Model.Date | @Html.DisplayFor(model => model.Location.LocationName) | @Html.DisplayFor(model => model.Season.SeasonName)</p>
+</section>
+<hr />
+
+<div class="col-md-4">
+    <form asp-action="Save" method="post" enctype="multipart/form-data">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div>
+            <ul id="sortableList" class="list-group my-4" data-toggle="tooltip" data-placement="top" title=" Click and drag to select player pisition">
+                @{
+                    List<WMBA_4.ViewModels.CheckOptionVM> checkboxes = ViewBag.PlayersOptions;
+                    @for (int i = 0; i < checkboxes.Count; i++)
+                    {
+                        <li class="list-group-item li-flex" data-id="@checkboxes[i].ID">
+                            <div>
+                                <span class="batting-order me-2">@(checkboxes[i].BattingOrder != 0 ? checkboxes[i].BattingOrder.ToString() : "")</span>
+                                <input type="checkbox"
+                                       class="custom-control-input me-2"
+                                       name="selectedOptions"
+                                       value="@checkboxes[i].ID"
+                                @(checkboxes[i].Assigned ? "checked=\"checked\"" : "") />
+                                @checkboxes[i].DisplayText&nbsp;&nbsp;
+                            </div>
+                            <div>
+                                <span class="material-symbols-outlined ft-grey">
+                                    drag_handle
+                                </span>
+                            </div>
+                        </li>
+                    }
+                }
+            </ul>
+        </div>
+        <div class="form-group d-flex">
+            <a class="btn btn-outline-secondary mx-1" asp-controller="Team" asp-action="details" asp-route-id="@ViewBag.TeamID">Back to Team Detail</a>
+            <input type="hidden" name="team" value="@ViewBag.TeamID" />
+            <input type="hidden" name="gameid" value="@ViewBag.GameID" />
+            <input type="submit" id="saveButton" value="Save" class="btn btn-kelly btn-text text-no-deco" />
+        </div>
+    </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.13.0/Sortable.min.js" defer></script>
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        var el = document.getElementById('sortableList');
+        Sortable.create(el, {
+            animation: 150,
+            onEnd: function () {
+                var listItems = el.children;
+                for (var i = 0; i < listItems.length; i++) {
+                    var listItem = listItems[i];
+                    listItem.querySelector('.batting-order').textContent = i + 1;
+                }
+            }
+        });
+
+        el.addEventListener('click', function (event) {
+            var listItem = event.target.closest('.list-group-item');
+            if (listItem) {
+                var checkbox = listItem.querySelector('input[type="checkbox"]');
+                if (checkbox) {
+                    checkbox.checked = !checkbox.checked;
+                }
+            }
+        });
+
+        // Checkbox toggle functionality
+        el.addEventListener('click', function (event) {
+            var checkbox = event.target.closest('input[type="checkbox"]');
+            if (checkbox) {
+                checkbox.checked = !checkbox.checked;
+            }
+        });
+
+        document.getElementById('saveButton').addEventListener('click', function () {
+            var playerOrder = [];
+            var listItems = el.children;
+            for (var i = 0; i < listItems.length; i++) {
+                var listItem = listItems[i];
+                if (listItem.querySelector('input[type="checkbox"]').checked) {
+                    playerOrder.push({
+                        id: listItem.getAttribute('data-id'),
+                        order: i
+                    });
+                }
+            }
+        });
+    });
+</script>

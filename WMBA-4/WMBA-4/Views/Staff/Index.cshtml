@@ -1,0 +1,66 @@
+﻿@model IEnumerable<WMBA_4.ViewModels.StaffAdminVM>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="text-danger">@TempData["message"]</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Roles)
+            </th>
+           
+            <th class="text-center" style="min-width:120px">
+                <a asp-action="Create" class="btn btn-sm btn-outline-success"
+                   role="button" data-bs-toggle="tooltip" title="Create New @ViewData["ControllerFriendlyName"]">
+                    <strong>&#x270D; Create</strong>
+                </a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FullName)<br />
+                    Email: @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                
+                <td>
+                    @{
+                        foreach (var r in item.Roles)
+                        {
+                            @:  @r <br />
+                        }
+                    }
+                </td>                
+                
+                <td class="text-center">
+                @if (!item.Roles.Contains("Admin"))
+                {
+                    <a asp-action="Edit" asp-route-id="@item.ID" class="btn btn-sm btn-outline-primary"
+                    role="button" data-bs-toggle="tooltip" title="Edit @ViewData["ControllerFriendlyName"]">
+                        &#x270E; Edit
+                    </a>
+                }
+                </td>               
+                
+            </tr>
+
+        }
+    </tbody>
+</table>
+

@@ -1,0 +1,91 @@
+﻿
+.svg {
+    background-color: rgb(22, 22, 22);
+    margin-top: 0;
+    margin-left: 0;
+}
+
+.field {
+    fill: rgb(3, 143, 34);
+}
+
+.home-base {
+    fill: rgb(189, 128, 72);
+}
+
+#buttonGroup {
+    transition: transform 0.7s ease;
+}
+
+#buttonRect {
+    fill: white;
+}
+
+#playerText {
+    font-family: Arial;
+    font-size: 12px;
+    fill: white;
+    text-anchor: middle;
+}
+
+.score-box {
+    background: white;
+    text-align: center;
+}
+
+.ball-box {
+    background: white;
+    text-align: center;
+}
+
+.team-box {
+    background: white;
+    text-align: center;
+}
+
+.inning-box {
+    padding: 0.5rem;
+    background: white;
+    text-align: center;
+}
+
+    /*.score-box h4,
+    .score-box h6,
+    .team-box div,
+    .team-box h3,
+    .ball-box h4,
+    .inning-box h6 {
+        font-family: 'digital display tfb', sans-serif;
+        font-size: 2.5rem;
+    }*/
+
+.player-box {
+    background: white;
+    text-align: center;
+}
+
+@media (max-width: 375px) {
+    .inning-box {
+        width: 1.9rem;
+        height: 2rem;
+        background: white;
+        text-align: center;
+    }
+}
+
+/*@media (max-width: 570px) {
+    .inning-box {
+        width: 2rem;
+        height: 2rem;
+        background: black;
+        text-align: center;
+    }
+}*/
+
+@media (min-width: 376px) {
+    .inning-box {
+        /*width: 2rem;*/
+        height: 2rem;
+        background: white;
+    }
+}

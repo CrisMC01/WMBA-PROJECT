@@ -1,0 +1,238 @@
+﻿@model IEnumerable<WMBA_4.Models.Division>
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<IdentityUser> UserManager
+
+@{
+    ViewData["Title"] = "Index";
+
+    // Get the current user
+    var user = await UserManager.GetUserAsync(User);
+
+    // Check if the user is in the "Admin" role
+    var isAdmin = await UserManager.IsInRoleAsync(user, "Admin");
+}
+@* page navigation *@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb breadcrumb-chevron p-3 bg-breadcrumble rounded-3">
+        <li class="breadcrumb-item">
+            <a class="link-body-emphasis" asp-controller="Home" asp-action="Index">
+                <i class="bi bi-house-door-fill"></i>
+            </a>
+        </li>
+        <li class="breadcrumb-item">
+            <a class="link-body-emphasis fw-semibold text-decoration-none" asp-controller="Division" asp-action="Index">Division</a>
+        </li>
+        @* <li class="breadcrumb-item active" aria-current="page">
+        Player
+        </li> *@
+    </ol>
+</nav>
+@* page navigation *@
+<div class="f-in-flex justify-content-end">
+
+    @using (Html.BeginForm("Create", "Division", FormMethod.Get))
+    {
+        <button class="btn btn-outline-dark me-1 @ViewData["Filtering"]" type="button" data-bs-toggle="collapse" id="filterToggle" data-bs-target="#collapseFilter" aria-expanded="false"
+                aria-controls="collapseFilter" data-toggle="tooltip" data-placement="top" title="Click to toggle filter/search options">
+            Filter/Search @ViewData["numberFilters"]
+        </button>
+        @if (isAdmin)
+        {
+            <button type="submit" class="btn btn-kelly" data-toggle="tooltip" data-placement="top" title="Click to add a new division">Add Division</button>
+        }
+    }
+
+</div>
+<div class="p-in-flex">
+    <form asp-action="Index" method="get">
+        <input type="hidden" name="sortDirection" value="@ViewData["sortDirection"]" />
+        <input type="hidden" name="sortField" value="@ViewData["sortField"]" />
+        <div class="form-horizontal">
+            <div class="collapse" id="collapseFilter">
+                <div class="card card-body bg-light">
+                    <div class="row">
+                        <div class="form-group col-md-4" data-toggle="tooltip" data-placement="top" title="Enter the division you want to search for">
+                            <label class="control-label">Search Division Name:</label>
+                            @Html.TextBox("SearchString", null, new { @class = "form-control" })
+                        </div>                        
+                        <div class="form-group col-md-4 align-content-center">
+                            <div class="d-flex my-2">
+                                @Html.CheckBox("isActive", null, new { @class = "form-check form-switch me-2", id = "isActiveCheckbox" })
+                                <label class="control-label" for="isActiveCheckbox">Active Division Only</label>
+                            </div>
+                            <div class="d-flex my-2">
+                                @Html.CheckBox("isInactive", null, new { @class = "form-check form-switch me-2", id = "isInactiveCheckbox" })
+                                <label class="control-label" for="isInactiveCheckbox">Inactive Division Only</label>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4 align-self-end" data-toggle="tooltip" data-placement="top" title="Click to apply the filter">
+                            <input type="submit" name="actionButton" value="Filter" class="btn btn-outline-success" />
+                            <a asp-action="Index" class="btn btn-outline-dark">Clear</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="table-responsive mt-3">
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Page Size: </span>
+                        </div>
+                        @Html.DropDownList("pageSizeID", null, htmlAttributes: new
+                            {
+                                @class = "form-control form-select text-center mx-1",
+                                @data_toggle = "tooltip",
+                                @data_placement = "top",
+                                @title = "Select the page size"
+                            })
+                        <div class="input-group-append" data-toggle="tooltip" data-placement="top" title="Click to set page size">
+                            <input type="submit" class="btn btn-kelly" value="Set Page Size" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @* added from modal *@
+            <table class="table-two giro-table table-bordered">
+                <thead>
+                    <tr>
+                        <th>
+                            <div class="d-flex justify-content-center">
+                                <input type="submit" name="actionButton" value="Division" class="text-column me-2" data-toggle="tooltip" data-placement="top" title="Click to sort division" />
+                                @if (ViewData["sortField"].ToString() == "Division")
+                                {
+                                    <div>
+                                        @if (ViewData["sortDirection"].ToString() == "asc")
+                                        {
+                                            <span class="material-icons-outlined ms-1 ft-kelly" data-toggle="tooltip" data-placement="top" title="Sorted Ascending">
+                                                <i class="fa-solid fa-sort-up"></i>
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            <span class="material-icons-outlined ms-1 ft-kelly" data-toggle="tooltip" data-placement="top" title="Sorted Descending">
+                                                <i class="fa-solid fa-sort-down"></i>
+                                            </span>
+                                        }                                        
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div>
+                                        <span class="material-icons-outlined ms-1 ft-kelly" data-toggle="tooltip" data-placement="top" title="Click to sort Ascending">
+                                            <i class="fa-solid fa-sort-up"></i>
+                                        </span>
+                                        <span class="material-icons-outlined ms-1 ft-kelly" data-toggle="tooltip" data-placement="top" title="Click to sort Descending" style="display: none;">
+                                            <i class="fa-solid fa-sort-down" style="display: none;"></i>
+                                        </span>
+                                    </div>
+                                }
+                            </div>
+                        </th>
+                        <th>
+                            <div class="d-flex justify-content-center">
+                                <input type="submit" name="actionButton" value="Club" class="text-column me-2" data-toggle="tooltip" data-placement="top" title="Click to sort by Club" />
+                                @if (ViewData["sortField"].ToString() == "Club")
+                                {
+                                    <div>
+                                        @if (ViewData["sortDirection"].ToString() == "asc")
+                                        {
+                                            <span class="material-icons-outlined ms-1 ft-kelly" data-toggle="tooltip" data-placement="top" title="Sorted Ascending">
+                                                <i class="fa-solid fa-sort-up"></i>
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            <span class="material-icons-outlined ms-1 ft-kelly" data-toggle="tooltip" data-placement="top" title="Sorted Descending">
+                                                <i class="fa-solid fa-sort-down"></i>
+                                            </span>
+                                        }
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div>
+                                        <span class="material-icons-outlined ms-1 ft-kelly" data-toggle="tooltip" data-placement="top" title="Click to sort Ascending">
+                                            <i class="fa-solid fa-sort-up"></i>
+                                        </span>
+                                        <span class="material-icons-outlined ms-1 ft-kelly" data-toggle="tooltip" data-placement="top" title="Click to sort Descending" style="display: none;">
+                                            <i class="fa-solid fa-sort-down" style="display: none;"></i>
+                                        </span>
+                                    </div>
+                                }
+                            </div>
+                        </th>
+                        <th>
+                            <div class="t-in-flex"><span>Edit |&nbsp;</span><span>Status</span></div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr class="@((item.Status) ? "" : "inactive-division") division-row" onclick="redirectToDetails('@item.ID')">
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DivisionName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Club.ClubName)
+                            </td>
+                            <td>
+                                @if (item.Status == true)
+                                {
+                                    @if (isAdmin) // Only render active "Edit" button for admin
+                                    {
+                                        <a asp-action="Edit" asp-route-id="@item.ID" data-toggle="tooltip" data-placement="top" title="Edit division">
+                                            <span class="material-symbols-outlined ft-kelly px-1">
+                                                edit
+                                            </span>
+                                        </a>
+                                    }
+                                    else // Render inactive "Edit" button for non-admin users
+                                    {
+                                       <a asp-action="Index" asp-route-id="@item.ID" data-toggle="tooltip" data-placement="top" title="Edit division">
+                                            <span class="material-symbols-outlined px-1" style="color: var(--ft-light-grey);" aria-disabled="true">
+                                                edit
+                                            </span>
+                                       
+                                        </a>
+                                    }
+                                    <a asp-action="Delete" asp-route-id="@item.ID" data-toggle="tooltip" data-placement="top" title=" Set to Inactive division">
+                                        <span class="material-symbols-outlined ft-kelly px-2">
+                                            group
+                                        </span>
+                                    </a>
+                                }
+                                else
+                                {
+                                    <div class="d-inline">
+                                        <span class="material-symbols-outlined px-1" style="color: var(--ft-light-grey);">
+                                            edit
+                                        </span>
+                                    </div>
+                                    <a asp-action="Delete" asp-route-id="@item.ID" data-toggle="tooltip" data-placement="top" title=" Set to Active division">
+                                        <span class="material-symbols-outlined px-2">
+                                            group_off
+                                        </span>
+                                    </a>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>             
+        <partial name="_PagingNavBar" />
+    </form>
+
+</div>
+
+@* show a division's' details view when click the row *@
+@section Scripts {
+    <script>
+        function redirectToDetails(divisionId) {
+            window.location.href = '@Url.Action("Edit", "Division")/' + divisionId;
+        }
+    </script>
+}

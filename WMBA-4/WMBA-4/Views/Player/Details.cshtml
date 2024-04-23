@@ -1,0 +1,393 @@
+﻿@model WMBA_4.Models.Player
+
+@{
+    ViewData["Title"] = "Details";
+    var totalGamesPlayed = (int)ViewData["TotalGamesPlayed"];
+
+    // 변수 초기화
+    int totalH = 0;
+    int totalRBI = 0;
+    int totalSingles = 0;
+    int totalDoubles = 0;
+    int totalTriples = 0;
+    int totalHR = 0;
+    int totalBB = 0;
+    int totalPA = 0;
+    int totalAB = 0;
+    int totalRun = 0;
+    int totalHBP = 0;
+    int totalStrikeout = 0;
+    int totalOut = 0;
+    double battingAverage = 0;
+    double onBasePercentage = 0;
+    double sluggingPercentage = 0;
+    double OPS = 0;
+    string Year = DateTime.UtcNow.Year.ToString();
+
+    // 모든 게임에 대한 점수 합산
+    foreach (var teamGame in ViewData["TeamGames"] as List<TeamGame>)
+    {
+        var game = teamGame.Game;
+        var lineupWithScore = game.GameLineUps.FirstOrDefault(gl => gl.PlayerID == Model.ID && gl.ScoresPlayer.Any());
+
+        if (lineupWithScore != null)
+        {
+            foreach (var scorePlayer in lineupWithScore.ScoresPlayer)
+            {
+                totalH += scorePlayer.H;
+                totalRBI += scorePlayer.RBI;
+                totalSingles += scorePlayer.Singles;
+                totalDoubles += scorePlayer.Doubles;
+                totalTriples += scorePlayer.Triples;
+                totalHR += scorePlayer.HR;
+                totalBB += scorePlayer.BB;
+                totalPA += scorePlayer.PA;
+                totalAB += scorePlayer.AB;
+                totalRun += scorePlayer.Run;
+                totalHBP += scorePlayer.HBP;
+                totalStrikeout += scorePlayer.StrikeOut;
+                totalOut += scorePlayer.Out;
+            }
+        }
+    }
+
+    // Batting Average (AVG)
+    if (totalAB != 0)
+    {
+        battingAverage = Math.Round((double)totalH / totalAB, 3);
+    }
+
+    // On-Base Percentage (OBP)
+    int onBasePercentageDenominator = totalAB + totalBB + totalHBP + totalPA;
+    if (onBasePercentageDenominator != 0)
+    {
+        onBasePercentage = Math.Round((double)(totalH + totalBB + totalHBP) / onBasePercentageDenominator, 3);
+    }
+
+    // Slugging Percentage (SLG)
+    int sluggingPercentageDenominator = totalAB != 0 ? totalAB : 1; // To avoid division by zero
+    sluggingPercentage = Math.Round((double)(totalH + 2 * totalDoubles + 3 * totalTriples + 4 * totalHR) / sluggingPercentageDenominator, 3);
+
+    // OPS (On-base Plus Slugging)
+    OPS = onBasePercentage + sluggingPercentage;
+}
+
+@* page navigation *@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb breadcrumb-chevron p-3 bg-breadcrumble rounded-3">
+        <li class="breadcrumb-item">
+            <a class="link-body-emphasis" asp-controller="Home" asp-action="Index">
+                <i class="bi bi-house-door-fill"></i>
+            </a>
+        </li>
+        <li class="breadcrumb-item">
+            <a class="link-body-emphasis fw-semibold text-decoration-none" asp-controller="Player" asp-action="Index">Player</a>
+        </li>
+        <li class="breadcrumb-item" aria-current="page">
+            Detail
+        </li>
+    </ol>
+</nav>
+@* page navigation *@
+
+<div class="d-flex align-items-center">
+    <h1 class="me-3">@Model.FirstName @Model.LastName</h1>
+    <div class="form-group m-0">
+        @if (Model.Status == true)
+        {
+            <a asp-action="Edit" asp-route-id="@Model?.ID" class="btn btn-warning">Edit</a>
+        }
+    </div>
+</div>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Team)
+        </dt>
+        @* <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Team.Name)
+        </dd> *@
+        <dd class="col-sm-10">
+            <a href="@Url.Action("Details", "Team", new { id = Model.Team.ID} )" class="ft-kelly text-bold text-hover text-underline">@Html.DisplayFor(model => model.Team.Name)</a>
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Team.Division.DivisionName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Team.Division.DivisionName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.JerseyNumber)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.JerseyNumber)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MemberID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MemberID)
+        </dd>
+    </dl>
+</div>
+
+<hr />
+<div class="f-in-flex align-items-center">
+    <h2 class="m-0">Stats</h2>
+    <p class="m-0">Total Games Played <strong>@totalGamesPlayed</strong></p>
+</div>
+<hr />
+
+<div class="row">
+    <div style="margin-bottom: 20px;">
+        <button class="collapsible active bg-kelly li-flex">
+            <div>
+                <i class="arrow fas fa-chevron-down me-1"></i>
+                <span>Year Stats</span>
+            </div>
+        </button>
+        <div class="content mt-2 me-2 ms-2 py-2" style="display: none; overflow-y: auto;">
+            <div class="d-flex">
+                <p class="col-sm-3 fs-6 me-3"><strong>AVG</strong> (Batting Average) = H (Hits) / AB (At-bats)</p>
+                <p class="col-sm-3 fs-6 me-3"><strong>OBP</strong> (On-Base Percentage) = (H + BB + HBP) / (AB + BB + HBP + SF)</p>
+                <p class="col-sm-3 fs-6 me-3"><strong>SLG</strong> (Slugging Percentage) = (1B + 2B × 2 + 3B × 3 + HR × 4) / AB</p>
+                <p class="col-sm-3 fs-6 me-3"><strong>OPS</strong> (On-base Plus Slugging) = OBP + SLG</p>
+            </div>
+            <div class="table-container" style="overflow-x: auto; width: 100%;">
+                <table class="table-two">
+                    <thead>
+                        <tr>
+                            <th>Year</th>
+                            <th>H</th>
+                            <th>RBI</th>
+                            <th>Single</th>
+                            <th>Double</th>
+                            <th>Triple</th>
+                            <th>HR</th>
+                            <th>BB</th>
+                            <th>PA</th>
+                            <th>AB</th>
+                            <th>Run</th>
+                            <th>HBP</th>
+                            <th>Strikeout</th>
+                            <th>Out</th>
+                            <th>AVG</th>
+                            <th>OBP</th>
+                            <th>SLG</th>
+                            <th>OPS</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-group-divider">
+                        <tr>
+                            <td>@Year</td>
+                            <td>@totalH</td>
+                            <td>@totalRBI</td>
+                            <td>@totalSingles</td>
+                            <td>@totalDoubles</td>
+                            <td>@totalTriples</td>
+                            <td>@totalHR</td>
+                            <td>@totalBB</td>
+                            <td>@totalPA</td>
+                            <td>@totalAB</td>
+                            <td>@totalRun</td>
+                            <td>@totalHBP</td>
+                            <td>@totalStrikeout</td>
+                            <td>@totalOut</td>
+                            <td>@battingAverage</td>
+                            <td>@onBasePercentage</td>
+                            <td>@sluggingPercentage</td>
+                            <td>@OPS</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div style="margin-bottom: 20px;">
+        <button class="collapsible active bg-kelly li-flex">
+            <div>
+                <i class="arrow fas fa-chevron-down me-1"></i>
+                <span>Game Stats</span>
+            </div>
+        </button>
+        <div class="content mt-2 me-2 ms-2 py-2" style="overflow-y: auto;">
+            <div class="table-container" style="overflow-x: auto; width: 100%;">
+                <table class="table-two" id="gameTable">
+                    <thead>
+                        <tr>
+                            <th>Game</th>
+                            <th>H</th>
+                            <th>RBI</th>
+                            <th>Single</th>
+                            <th>Double</th>
+                            <th>Triple</th>
+                            <th>HR</th>
+                            <th>BB</th>
+                            <th>PA</th>
+                            <th>AB</th>
+                            <th>Run</th>
+                            <th>HBP</th>
+                            <th>Strikeout</th>
+                            <th>Out</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-group-divider">
+                        @{
+                            var sortedTeamGames = (ViewData["TeamGames"] as List<TeamGame>)?.OrderBy(tg => tg.Game.Date);
+                        }
+                        @foreach (var teamGame in sortedTeamGames)
+                        {
+                            var game = teamGame.Game;
+                            var lineupWithScore = game.GameLineUps.FirstOrDefault(gl => gl.PlayerID == Model.ID && gl.ScoresPlayer.Any());
+
+                            if (lineupWithScore != null)
+                            {
+                                var playedTeam = teamGame.Game.TeamGames.FirstOrDefault(gl => gl.TeamID == Model.TeamID)?.Team;
+                                var opponentTeam = teamGame.Game.TeamGames.FirstOrDefault(gl => gl.TeamID != Model.TeamID)?.Team;
+
+                                <tr class="game-row">
+                                    <td>@game.Date.ToString("MMMM dd")</td>
+                                    <td>@lineupWithScore.ScoresPlayer.Sum(sp => sp.H)</td>
+                                    <td>@lineupWithScore.ScoresPlayer.Sum(sp => sp.RBI)</td>
+                                    <td>@lineupWithScore.ScoresPlayer.Sum(sp => sp.Singles)</td>
+                                    <td>@lineupWithScore.ScoresPlayer.Sum(sp => sp.Doubles)</td>
+                                    <td>@lineupWithScore.ScoresPlayer.Sum(sp => sp.Triples)</td>
+                                    <td>@lineupWithScore.ScoresPlayer.Sum(sp => sp.HR)</td>
+                                    <td>@lineupWithScore.ScoresPlayer.Sum(sp => sp.BB)</td>
+                                    <td>@lineupWithScore.ScoresPlayer.Sum(sp => sp.PA)</td>
+                                    <td>@lineupWithScore.ScoresPlayer.Sum(sp => sp.AB)</td>
+                                    <td>@lineupWithScore.ScoresPlayer.Sum(sp => sp.Run)</td>
+                                    <td>@lineupWithScore.ScoresPlayer.Sum(sp => sp.HBP)</td>
+                                    <td>@lineupWithScore.ScoresPlayer.Sum(sp => sp.StrikeOut)</td>
+                                    <td>@lineupWithScore.ScoresPlayer.Sum(sp => sp.Out)</td>
+                                </tr>
+                                <tr class="game-details" style="display: none;">
+                                    <td colspan="14">
+                                        <div class="row">
+                                            <p class="col-sm-3">
+                                                <span><strong>Date: </strong>@game.Date.ToString("MMMM dd, yyyy hh:mm tt")</span>
+                                            </p>
+                                            <p class="col-sm-3"><strong>Location: </strong><span>@game.Location.LocationName</span></p>
+                                            <p class="col-sm-3"><strong>Game Type:</strong> <span>@game.GameType.Description</span></p>
+                                            <p class="col-sm-3"><strong>Coach:</strong> <span>@ViewData["Coach"]</span></p>
+                                            <p class="col-sm-3"><strong>Played Team:</strong> <span>@(playedTeam != null ? playedTeam.Name : "Unknown Team")</span></p>
+                                            <p class="col-sm-3"><strong>Opponent Team:</strong> <span>@(opponentTeam != null ? opponentTeam.Name : "Unknown Team")</span></p>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+    <a href='@ViewData["returnURL"]' class="btn btn-outline-secondary mx-1">Back to the @ViewData["ControllerName"] List</a>
+</div>
+
+<style>
+    .active, .collapsible {
+        background-color: #23314E;
+        color: white;
+        cursor: pointer;
+        padding: 10px 20px; /* Adjust padding for oval shape */
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+        border-radius: 50px; /* Make it an oval shape */
+    }
+
+        .collapsible:hover {
+            background-color: #23b51c;
+        }
+
+    .content {
+        padding: 0 18px;
+        display: none;
+        overflow: hidden;
+        border-radius: 20px; /* Adjust border radius for content */
+    }
+
+    .arrow {
+        transition: transform 0.3s ease;
+    }
+
+        .arrow.rotate {
+            transform: rotate(180deg);
+        }
+</style>
+@section Scripts {
+    <script>
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+            var content = coll[i].nextElementSibling;
+            var arrow = coll[i].querySelector('.arrow');
+
+            // Initially open all collapsible sections
+            content.style.display = "none";
+            arrow.classList.add('rotate');
+
+            coll[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                var arrow = this.querySelector('.arrow');
+                if (content.style.display === "none") {
+                    content.style.display = "block";
+                    arrow.classList.remove('rotate');
+                } else {
+                    content.style.display = "none";
+                    arrow.classList.add('rotate');
+                }
+            });
+        }
+
+        // Open the second collapsible on page load
+        var secondCollapsible = document.getElementsByClassName("collapsible")[1];
+        var secondContent = secondCollapsible.nextElementSibling;
+        var secondArrow = secondCollapsible.querySelector('.arrow');
+        secondCollapsible.classList.toggle("active");
+        secondContent.style.display = "block";
+        secondArrow.classList.remove('rotate');
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var gameRows = document.querySelectorAll(".game-row");
+
+            gameRows.forEach(function (row) {
+                row.addEventListener("click", function () {
+                    var gameDetailsRow = this.nextElementSibling;
+
+                    // 현재 상태를 확인합니다.
+                    var isOpen = gameDetailsRow.classList.contains("show");
+
+                    // 모든 세부 정보를 닫습니다.
+                    var allGameDetailsRows = document.querySelectorAll(".game-details");
+                    allGameDetailsRows.forEach(function (detailsRow) {
+                        detailsRow.style.display = "none";
+                    });
+
+                    // 현재 클릭된 행의 상태에 따라 열거나 닫습니다.
+                    if (!isOpen) {
+                        gameDetailsRow.style.display = "table-row";
+                        gameDetailsRow.classList.add("show");
+                    } else {
+                        gameDetailsRow.style.display = "none";
+                        gameDetailsRow.classList.remove("show");
+                    }
+                });
+            });
+        });
+    </script>
+}
+

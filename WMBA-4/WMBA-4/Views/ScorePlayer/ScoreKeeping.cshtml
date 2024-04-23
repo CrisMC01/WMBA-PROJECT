@@ -1,0 +1,301 @@
+﻿@model WMBA_4.Models.GameLineUp
+
+@{
+    ViewData["Title"] = "ScoreKeeping";
+    Layout = "~/Views/Shared/_AllLinks.cshtml";
+}
+@* Cristina added this for displaying the alert message *@
+<div id="alert" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); color: rgba(76, 187, 23, 0.7); padding: 20px; text-align: center; z-index: 1000; font-size: 150px; font-family: 'proxima-soft';">
+</div>
+@* Start Row *@
+<div class="alert_box">
+    <p id="showalert" class="alert alert-secondary text-center">
+        Press Start Game Button!
+    </p>
+</div>
+<div class="mt-4">
+    <div class="bg-blue">
+        <div class="p-2 my-3">
+            <div class="border border-1 p-2">
+                @* Team Info *@
+                <div class="team-area">
+                    @if (ViewBag.Teams != null && ViewBag.Teams.Count > 0)
+                    {
+                        @if (ViewBag.Teams.Count > 1)
+                        {
+                            <div class="f-in-flex align-items-center my-1">
+                                @* Home Team *@
+                                <div class="w-50">
+                                    <div class="d-flex flex-column team-box me-2 p-2" data-toggle="tooltip" data-placement="top" title=" Home Team Name">
+                                        <div class="my-1 text-black">Home</div>
+                                        <h3 class="text-black m-0">@ViewBag.Team1</h3>
+                                        <div class="my-1 text-black">@ViewBag.Team1Division</div>
+                                    </div>
+                                </div>
+                                @* Team Scores *@
+                                <div class="w-25">
+                                    <div class="d-flex justify-content-center">
+                                        @if (ViewBag.Inplay != null)
+                                        {
+                                            <div class="score-box me-1" data-toggle="tooltip" data-placement="top" title=" Home Team Score">
+                                                <h4 id="runs" class="score-size text-black p-2 m-0 h-100 d-flex justify-content-center align-items-center">@(ViewBag.Team1Score != null ? ViewBag.Team1Score : "-")</h4>
+                                            </div>
+                                            <div class="score-box ms-1" data-toggle="tooltip" data-placement="top" title=" Visitor Team Score">
+                                                <h4 id="runs2" class="score-size text-black p-2 m-0 h-100 d-flex justify-content-center align-items-center">@(ViewBag.Team2Score != null ? ViewBag.Team2Score : "")</h4>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                                @* Away Team *@
+                                <div class="w-50">
+                                    <div class="d-flex flex-column team-box ms-2 p-2" data-toggle="tooltip" data-placement="top" title=" Visitor's Team Name">
+                                        <div class="my-1 text-black">Away</div>
+                                        <h3 class="text-black m-0">@ViewBag.Team2</h3>
+                                        <div class="my-1 text-black">@ViewBag.Team2Division</div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+                @* Inning and AB Info *@
+                <div class="d-flex justify-content-around p-2">
+                    @if (ViewBag.Inplay != null)
+                    {
+                        <div class="d-flex flex-column" data-toggle="tooltip" data-placement="top" title=" Carrent Inning">
+                            <h5 class="fs-3 text-white card-title mb-2 text-center">Inning </h5>
+                            <div class="score-box text-black text-center m-auto px-3 py-2">
+                                <h6 id="inning" class="m-0 h-100 lh-base d-flex justify-content-center align-items-center">
+                                    @(ViewBag.Inplay.Inning != null ? ViewBag.Inplay.Inning.InningNumber : "-")
+                                </h6>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-column" data-toggle="tooltip" data-placement="top" title=" Batter's Name'">
+                            <h5 class="fs-3 text-white card-title mb-2 text-center">At Bat </h5>
+                            <div class="score-box text-black text-center m-auto px-3 py-2">
+                                <h6 id="playerAtBat" class="m-0 h-100 lh-base d-flex justify-content-center align-items-center">
+                                    @(ViewBag.Inplay.PlayerBatting != null ? ViewBag.Inplay.PlayerBatting.FullName : "-")
+                                </h6>
+                            </div>
+                        </div>
+                    }
+                </div>
+                @* Ball Strike Out *@
+                <div class="d-flex justify-content-center py-2 mb-2">
+                    @if (ViewBag.Inplay != null)
+                    {
+                        <div class="d-flex align-items-center me-4" data-toggle="tooltip" data-placement="top" title=" Balls">
+                            <h4 id="ballsText" class="text-white fs-1 m-0">B</h4>
+                            <div class="ball-box mx-2 px-3 py-2">
+                                <h4 class="text-black m-0 d-flex h-100 justify-content-center align-items-center" id="ballsCount">@(ViewBag.Inplay != null ? ViewBag.Inplay.Balls : "")</h4>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center me-4" data-toggle="tooltip" data-placement="top" title=" Strike">
+                            <h4 id="ballsText" class="text-white fs-1 m-0">S</h4>
+                            <div class="ball-box mx-2 px-3 py-2">
+                                <h4 class="text-black m-0 d-flex h-100 justify-content-center align-items-center" id="strikesCount"> @(ViewBag.Inplay != null ? ViewBag.Inplay.Strikes : "")</h4>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="top" title=" Out">
+                            <h4 id="ballsText" class="text-white fs-1 m-0">O</h4>
+                            <div class="ball-box mx-2 px-3 py-2">
+                                <h4 class="text-black m-0 d-flex h-100 justify-content-center align-items-center" id="outs">@(ViewBag.Inplay != null ? ViewBag.Inplay.Outs : "")</h4>
+                            </div>
+                        </div>
+                    }
+                </div>
+                @* Inning Table Info *@
+                <div class="inning-area">
+                    <div class="w-100">
+                        <table class="table-four mb-1">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    @for (int inningNumber = 1; inningNumber <= 9; inningNumber++)
+                                    {
+                                        <th class="text-white fs-4 p-0 text-center">@inningNumber</th>
+                                    }
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var team in ViewBag.Teams)
+                                {
+                                    @if (ViewBag.TeamID != team.ID)
+                                    {
+                                        <tr>
+                                            <td class="p-1">
+                                                <div class="inning-box text-black text-center m-auto">
+                                                    <h6 class="m-0 h-100 lh-base d-flex justify-content-center align-items-center">
+                                                        A
+                                                    </h6>
+                                                </div>
+                                            </td>
+                                            @for (int inningNumber = 1; inningNumber <= 9; inningNumber++)
+                                            {
+                                                <td class="py-1">
+                                                    <div class="inning-box text-black text-center m-auto">
+                                                        <h6 class="m-0 h-100 lh-base d-flex justify-content-center align-items-center" id="inningScoreA@(inningNumber)">
+                                                            @(ViewBag.InningScoresA.ContainsKey(inningNumber) ? ViewBag.InningScoresA[inningNumber] : "-")
+                                                        </h6>
+                                                    </div>
+                                                </td>
+                                            }
+                                        </tr>
+                                    }
+                                }
+                                @foreach (var team in ViewBag.Teams)
+                                {
+                                    @if (ViewBag.TeamID == team.ID)
+                                    {
+                                        <tr>
+                                            <td class="p-1">
+                                                <div class="inning-box text-black text-center m-auto py-2">
+                                                    <h6 class="m-0 h-100 lh-base d-flex justify-content-center align-items-center">
+                                                        H
+                                                    </h6>
+                                                </div>
+                                            </td>
+                                            @for (int inningNumber = 1; inningNumber <= 9; inningNumber++)
+                                            {
+                                                <td class="py-1">
+                                                    <div class="inning-box text-black text-center m-auto">
+                                                        <h6 class="m-0 h-100 lh-base d-flex justify-content-center align-items-center" id="inningScoreH@(inningNumber)">
+                                                            @(ViewBag.InningScoresH.ContainsKey(inningNumber) ? ViewBag.InningScoresH[inningNumber] : "-")
+                                                        </h6>
+                                                    </div>
+                                                </td>
+                                            }
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @* Buttons *@
+    <div class="px-2">
+        <div>
+            @if (ViewBag.Inplay != null)
+            {
+                <input type="hidden" id="inplayId" value="@(ViewBag.Inplay != null ? ViewBag.Inplay.ID : "")" />
+                <input type="hidden" id="isVisitor" value="@(ViewBag.Inplay != null ? ViewBag.IsVisitor: "")" />
+            }
+        </div>
+        <div class="card-body p-0 mb-3">
+            <div id="opponentButtons" class="d-flex justify-content-around">
+                @* Cristina added this for innings *@
+                <a href="#" id="opponentScoreButton" class="btn btn-Scorekeeper  mx-1 col py-3" data-gameid="@ViewBag.GameID" data-teamid="@ViewBag.TeamID">
+                    <span style="white-space: normal;">Opponent Run</span>
+                </a>
+                <a href="#" id="opponentOutsButton" class="btn btn-Scorekeeper  mx-1 col py-3" data-gameid="@ViewBag.GameID" data-teamid="@ViewBag.TeamID">
+                    <span id="OpponentOut" style="white-space: normal;">Opponent Out</span>
+                </a>
+            </div>
+            <div id="scoreBtnContainer">
+                <div class="d-flex justify-content-around mt-2">
+                    <a id="ballsButton" class="btn btn-Scorekeeper  mx-1 col py-3">
+                        <span>Ball</span>
+                    </a>
+                    <a id="strikeButton" class="btn btn-Scorekeeper  mx-1 col py-3">
+                        <span>Strike</span>
+                    </a>
+                    <a id="foulButton" class="btn btn-Scorekeeper  mx-1 col py-3">
+                        <span>Foul</span>
+                    </a>
+                    <a id="outButton" class="btn btn-Scorekeeper  mx-1 col py-3">
+                        <span>Out</span>
+                    </a>
+                </div>
+                <div class="d-flex justify-content-around rounded-bottom mt-2">
+                    <a id="hbpButton" class="btn btn-Scorekeeper  mx-1 col py-3" data-toggle="tooltip" data-placement="top" title=" hit-by-pitch">
+                        <span>HBP</span>
+                    </a>
+                    @*  <a id="hitButton" class="btn btn-kelly mx-1 col">Hit</a> *@
+                    <button id="hitButton" type="button" class="btn btn-Scorekeeper  mx-1 col dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span>Hit</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" id="singleButton" href="#">Single</a>
+                        <a class="dropdown-item" id="doubleButton" href="#">Double</a>
+                        <a class="dropdown-item" id="tripleButton" href="#">Triple</a>
+                        <a class="dropdown-item" id="homeRunButton" href="#">HomeRun</a>
+                    </div>
+                    <a id="openPopupButton" data-inplayId="ViewBag.Inplay.ID" class="btn btn-Scorekeeper  mx-1 col py-3">
+                        <span>In Play</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-around">
+            <a asp-controller="ScorePlayer" id="startButton" asp-action="Start" asp-route-teamId="@ViewBag.TeamID" asp-route-gameId="@ViewBag.GameID" class="btn btn-blue py-4 ms-1 col align-items-center justify-content-center">
+                <span>Start Game</span>
+            </a>
+            <a id="inningButton" data-team-id="@ViewBag.TeamID" data-game-id="@ViewBag.GameID" class="btn btn-blue ms-1 col py-3 d-flex align-items-center justify-content-center">
+                <span>Next Inning</span>
+            </a>
+            <div id="lineupButton" class="btn btn-blue mx-1 col py-3 d-flex align-items-center justify-content-center">
+                <a data-gameid="@ViewBag.GameID" data-teamid="@ViewBag.TeamID" >
+                    <span style="white-space: normal;">Line Up</span>
+                </a>
+            </div>
+            <div class="dropdown d-flex col btn-group dropup">
+                <button class="btn btn-blue me-1  py-3 dropdown-toggle d-flex align-items-center justify-content-center" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span style="white-space: normal;">Exit Game</span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item exit-game-option" href="#">End Game</a>
+                    <a class="dropdown-item exit-game-option" href="#">Cancel Game</a>
+                    <a class="dropdown-item exit-game-option" href="#" data-teamid="@ViewBag.TeamID">Forfeit</a>
+                </div>
+            </div>
+        </div>
+        <a href="index" data-gameid="@ViewBag.GameID" data-teamid="@ViewBag.TeamID" class="btn btn-secondary mx-1 col mt-3 py-3 d-flex align-items-center justify-content-center">
+            <span style="white-space: normal;">Back</span>
+        </a>
+    </div>
+</div>
+@* End Row *@
+
+@* This is for LineUp Popup *@
+<div id="lineupPopup" class="popup-container" style="display: none;">
+    <div class="popup-content">
+        <button id="closeButton" class="close">&times;</button> <!-- "x" button -->
+        <!-- This is where the lineup view will be loaded -->
+        <button id="popoverButton" class="btn btn-secondary">Open Popover</button>
+        <div id="popoverContent" style="display: none;">
+            <!-- Popover content goes here -->
+            This is the content of the popover.
+        </div>
+    </div>
+</div>
+
+
+@* Ths is for InPlay popup *@
+
+<!-- Modal -->
+<div class="modal fade" id="inplayModal" tabindex="-1" role="dialog" aria-labelledby="inplayModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="inplayModalLabel">Inplay Data</h5>
+                <button id="closeButtonInplayx" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="inplayModalBody">
+            </div>
+            <div class="modal-footer">
+                <button id="closeButtonInplay" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button id="saveChangesButton" type="button" class="btn btn-kelly mx-1">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@* <script src="~/js/Scorekeeper.js" asp-append-version="true"></script> *@
+<script src="~/js/ActionsScorekeeping.js" asp-append-version="true"></script>
+

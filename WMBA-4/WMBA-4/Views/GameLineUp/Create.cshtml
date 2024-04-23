@@ -1,0 +1,51 @@
+﻿@model WMBA_4.Models.GameLineUp
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>GameLineUp</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+           
+              <div class="form-group">
+
+                <div>                                         
+                            @{
+                               
+                                List<WMBA_4.ViewModels.CheckOptionVM> checkboxes = ViewBag.PlayersOptions;
+                                foreach (var checkbox in checkboxes)
+                                {
+                               
+                                      
+                                        <input type="checkbox"
+                                               name="selectedOptions"
+                                               value="@checkbox.ID"
+                                               @(Html.Raw(checkbox.Assigned ? "checked=\"checked\"" : "")) />
+                                        @checkbox.DisplayText @:&nbsp;&nbsp;<br>
+                                  
+                                }
+                            
+                            }
+                        
+                    </div>
+                </div>
+                 <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a href='@ViewData["returnURL"]'>Back to the @ViewData["ControllerName"] List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

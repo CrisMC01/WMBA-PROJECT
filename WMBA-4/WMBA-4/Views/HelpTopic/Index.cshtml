@@ -1,0 +1,278 @@
+﻿@{
+    ViewData["Title"] = "Help";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Bootstrap CSS -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<style>
+    /* Custom styles for better user experience */
+    .accordion {
+        margin-bottom: 20px;
+    }
+
+    .card {
+        border: none;
+        margin-bottom: 10px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-header {
+        background-color: #f8f9fa;
+        padding: 15px;
+        cursor: pointer;
+        border-radius: 10px;
+        border: none;
+        position: relative;
+    }
+
+        .card-header button {
+            font-weight: bold;
+            color: green; /* Set the color */
+        }
+
+        .card-header:hover {
+            background-color: #e9ecef;
+        }
+
+    .card-body {
+        padding: 0 15px 15px 15px;
+    }
+
+        .card-body p {
+            margin: 10px 10px 10px 10px;
+            padding: 10px 10px 10px 10px;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        .card-body img {
+            border: 1px solid #ccc; /* Add border around images */
+        }
+
+    .accordion-img-container {
+        display: flex;
+        /* justify-content: center; /* Horizontally center the images */ */
+    }
+
+    .accordion-img {
+        width: 400px;
+        height: auto;
+        padding: 10px 10px 10px 10px;
+        margin: 10px 10px 10px 10px;
+    }
+
+</style>
+<div class="container" id="help">
+    <h1 class="mt-5">User Guide</h1>
+
+    <!-- Authentication -->
+    <div class="accordion" id="accordionAuthentication">
+        <div class="card">
+            <div class="card-header" id="headingAuthentication">
+                <h2 class="mb-0">
+                    <button class="btn" type="button" data-toggle="collapse" data-target="#collapseAuthentication" aria-expanded="true" aria-controls="collapseAuthentication">
+                        Authentication
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseAuthentication" class="collapse" aria-labelledby="headingAuthentication" data-parent="#accordionAuthentication">
+                <div class="card-body">
+                    <div class="accordion-img-container">
+                        <!-- Container for image -->
+                        <img src="images/reg1.png" alt="Registration Process" class="img-fluid accordion-img">
+                        <p><b>If you're a new user, click on the "<a href="Identity/Account/Register?returnUrl=%2F">Register</a>" link to create a new account.</b></p>
+                    </div>
+                    <div class="accordion-img-container">
+                        <!-- Container for image -->
+                        <img src="images/login.png" alt="Registration Process" class="img-fluid accordion-img">
+                        <p><b>Otherwise, log in using your existing credentials.</b></p>
+                    </div>
+
+                    <div class="accordion-img-container">
+                        <!-- Container for image -->
+                        <img src="images/DashBoard.png" alt="Registration Process" class="img-fluid accordion-img">
+                        <p><b>Upon logging in, you'll be directed to the dashboard where you can access various features and functionalities.<br /> <br />Note: Dash Board Image may be different by role</b></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Team Management -->
+    <div class="accordion" id="accordionTeamManagement">
+        <div class="card">
+            <div class="card-header" id="headingTeamManagement">
+                <h2 class="mb-0">
+                    <button class="btn  collapsed" type="button" data-toggle="collapse" data-target="#collapseTeamManagement" aria-expanded="false" aria-controls="collapseTeamManagement">
+                        Team Management
+                    </button>
+                </h2>
+            </div>
+
+            <div id="collapseTeamManagement" class="collapse" aria-labelledby="headingTeamManagement" data-parent="#accordionTeamManagement">
+                <div class="card-body">
+                    <div class="accordion-img-container">
+                        <!-- Container for image -->
+                        <img src="images/ImportTeam.png" alt="Registration Process" class="img-fluid accordion-img">
+                        <p><b>Navigate to the "CONVENOR" section in the sidebar and select "Import Teams" to add new teams to the database.</b></p>
+                    </div>
+                    <div class="accordion-img-container">
+                        <!-- Container for image -->
+                        <img src="images/Addteam.png" alt="Registration Process" class="img-fluid accordion-img">
+                        <p><b>Navigate to the "COACH" section in the sidebar and select "Teams" to view a list of all registered teams.</b></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game Assignment -->
+    <div class="accordion" id="accordionGameAssignment">
+        <div class="card">
+            <div class="card-header" id="headingGameAssignment">
+                <h2 class="mb-0">
+                    <button class="btn  collapsed" type="button" data-toggle="collapse" data-target="#collapseGameAssignment" aria-expanded="false" aria-controls="collapseGameAssignment">
+                        Game Assignment
+                    </button>
+                </h2>
+            </div>
+
+            <div id="collapseGameAssignment" class="card-body collapse" aria-labelledby="headingGameAssignment" data-parent="#accordionGameAssignment">
+                <div class="card-body">
+                    <div class="accordion-img-container">
+                        <!-- Container for image -->
+                        <img src="images/GameAssigment.png" alt="Registration Process" class="img-fluid accordion-img">
+                        <p><b>Navigate to the "CONVENOR" section in the sidebar and select "Game Assignment" to see a list of scheduled games</b></p>
+                    </div>
+                    <div class="accordion-img-container">
+                        <!-- Container for image -->
+                        <img src="images/GameAssigment1.png" alt="Registration Process" class="img-fluid accordion-img">
+                        <p><b>Click the "Add Game" to make a new game or click the edit icon to edit the game.</b></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scorekeeper Section -->
+    <div class="accordion" id="accordionScorekeeper">
+        <div class="card">
+            <div class="card-header" id="headingScorekeeper">
+                <h2 class="mb-0">
+                    <button class="btn  collapsed" type="button" data-toggle="collapse" data-target="#collapseScorekeeper" aria-expanded="false" aria-controls="collapseScorekeeper">
+                        Scorekeeper
+                    </button>
+                </h2>
+            </div>
+
+            <div id="collapseScorekeeper" class="collapse" aria-labelledby="headingScorekeeper" data-parent="#accordionScorekeeper">
+                <div class="card-body">
+                    <div class="accordion-img-container">
+                        <!-- Container for image -->
+                        <img src="images/Scorekeeper.png" alt="Registration Process" class="img-fluid accordion-img">
+                        <p><b>Navigate to the "SCOREKEEPER" section in the sidebar and select "Upcoming Games".</b></p>
+                    </div>
+                    <div class="accordion-img-container">
+                        <!-- Container for image -->
+                        <img src="images/Scorekeeper2.png" alt="Registration Process" class="img-fluid accordion-img">
+                        <p><b>Select a Match you are about to score and and select "Start Score".</b></p>
+                    </div>
+                    <div class="accordion-img-container">
+                        <!-- Container for image -->
+                        <img src="images/Scorekeeper3.png" alt="Registration Process" class="img-fluid accordion-img">
+                        <p><b>Select a Team you are about to score and  select "Start Match".</b></p>
+                    </div>
+                    <h5>Additional Tips</h5>
+                    <ul>
+                        <b>
+                        <li>You can edit or delete scores for a game if needed.</li>
+                        <li>Make sure to double-check the entered scores before saving to ensure accuracy.</li></b>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reports -->
+    <div class="accordion" id="accordionReports">
+        <div class="card">
+            <div class="card-header" id="headingReports">
+                <h2 class="mb-0">
+                    <button class="btn  collapsed" type="button" data-toggle="collapse" data-target="#collapseReports" aria-expanded="false" aria-controls="collapseReports">
+                        Reports
+                    </button>
+                </h2>
+            </div>
+
+            <div id="collapseReports" class="card-body collapse" aria-labelledby="headingReports" data-parent="#accordionReports">
+                <div class="card-body">
+                    <p><b>Access the "Report" section to generate reports based on game statistics, player and team performance.</b></p>
+                    <div class="accordion-img-container">
+                        <!-- Container for image -->
+                        <img src="images/Report1.png" alt="Registration Process" class="img-fluid accordion-img">
+                        <p><b>Navigate to the "COACH" section in the sidebar and select "Report" choice what stat do you want to view.</b></p>
+                    </div>
+                    <div class="accordion-img-container">
+                        <!-- Container for image -->
+                        <img src="images/ReportTeam.png" alt="Registration Process" class="img-fluid accordion-img">
+                        <p><b>You can select the player or team you want to download by selecting the check box and click download.</b></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Troubleshooting -->
+    <div class="accordion" id="accordionTroubleshooting">
+        <div class="card">
+            <div class="card-header" id="headingTroubleshooting">
+                <h2 class="mb-0">
+                    <button class="btn  collapsed" type="button" data-toggle="collapse" data-target="#collapseTroubleshooting" aria-expanded="false" aria-controls="collapseTroubleshooting">
+                        Troubleshooting
+                    </button>
+                </h2>
+            </div>
+
+            <div id="collapseTroubleshooting" class="card-body collapse" aria-labelledby="headingReports" data-parent="#accordionTroubleshooting">
+                <div class="card-body">
+                    <p><b>If you encounter any error messages, refer to the documentation or contact support for assistance.</b></p>
+                    <p><b>Check your internet connection and ensure that your browser is up-to-date. Clearing browser cache may also resolve some issues.</b></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Support -->
+    <div class="accordion" id="accordionContactSupport">
+        <div class="card">
+            <div class="card-header" id="headingContactSupport">
+                <h2 class="mb-0">
+                    <button class="btn collapsed" type="button" data-toggle="collapse" data-target="#collapseContactSupport" aria-expanded="false" aria-controls="collapseContactSupport">
+                        Contact Support
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseContactSupport" class="card-body collapse" aria-labelledby="headingReports" data-parent="#accordionContactSupport">
+                <div class="card-body">
+                    <p><b>If you need further assistance or have any questions, please don't hesitate to contact our support team at <a href="mailto:support@example.com">support@example.com</a>.</b></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        // 카드 클릭 이벤트 핸들러 등록
+        $('.card').click(function () {
+            var $collapse = $(this).find('.collapse');
+            // 현재 카드의 아코디언 상태 확인 후 토글
+            if ($collapse.hasClass('show')) {
+                $collapse.collapse('hide');
+            } else {
+                $collapse.collapse('show');
+            }
+        });
+    });
+</script>
